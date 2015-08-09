@@ -2,6 +2,7 @@
  * Dependencies
  */
 var autoprefixer = require('metalsmith-autoprefixer');
+var branch = require('metalsmith-branch');
 var browserSync = require('metalsmith-browser-sync');
 var calc = require('postcss-calc');
 var customMedia = require('postcss-custom-media');
@@ -13,10 +14,6 @@ var layouts = require('metalsmith-layouts');
 var metalsmith = require('metalsmith');
 var postcss = require('metalsmith-postcss');
 var rename = require('metalsmith-rename');
-var serve = require('metalsmith-serve');
-var watch = require('metalsmith-watch');
-
-var branch = require('metalsmith-branch');
 
 /**
  * Import metadata
@@ -68,7 +65,7 @@ metalsmith(__dirname)
   // Serve and watch for changes
   .use(browserSync({
     server : 'build',
-    files : ['src/**/*', 'layouts/**/*']
+    files : ['src/**/*', 'layouts/**/*', 'partials/**/*']
   }))
 
   // Build site
