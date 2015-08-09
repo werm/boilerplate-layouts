@@ -1,0 +1,43 @@
+/**
+ * Duo will import this dependency straight from github, without a manifesto.
+ * You can import local files as well.
+ */
+@import 'necolas/normalize.css';
+
+/**
+ * Autoprefixer will make sure vendor prefixes are added
+ */
+body {
+  display: flex;
+}
+
+/**
+ * These css variables will be compiled by postcss-custom-properties
+ */
+:root {
+  --color: red;
+}
+
+div {
+  color: var(--color);
+  /* Non-existent variable with fallback */
+  outline: var(--outline, 1px solid red);
+}
+
+/**
+ * These media queries will be compiled by postcss-custom-media
+ */
+@custom-media --test (min-width: 50em);
+
+@media (--test) {
+  div {
+    color: red;
+  }
+}
+
+/**
+ * This calc expression will be compiled by postcss-calc
+ */
+body {
+  width: calc(100px * 2);
+}

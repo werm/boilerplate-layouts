@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ title }}</title>
+  {{! Files will be fingerprinted for cache busting }}
+  {{! Access their filenames with the fingerprint variable }}
+  <link rel="stylesheet" href="{{ fingerprint.[css/index.css] }}">
+</head>
+<body>
+  {{> header }}
+  {{{ contents }}}
+  {{! Each file has a filename variable }}
+  <p>This file's filename was: {{ filename }}</p>
+  <script src="{{ fingerprint.[js/index.js] }}"></script>
+</body>
+</html>
