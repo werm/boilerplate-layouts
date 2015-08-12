@@ -38,6 +38,9 @@ var supported = {browsers: ['> 1%', 'last 2 versions', 'IE >= 9']}
  * Build
  */
 metalsmith(__dirname)
+  // Build to .tmp
+  .destination('.tmp')
+
   // Process metadata
   .metadata(metadata)
 
@@ -64,7 +67,7 @@ metalsmith(__dirname)
 
   // Serve and watch for changes
   .use(browserSync({
-    server : 'build',
+    server : '.tmp',
     files : ['src/**/*', 'layouts/**/*', 'partials/**/*']
   }))
 
